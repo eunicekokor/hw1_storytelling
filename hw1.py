@@ -4,30 +4,28 @@ import requests
 import json
 import datetime
 import time
-weather_data = {}
+stock_data = {"quote": None}
 
-def has_changed(initial, current, query, units):
+def has_changed(initial, current):
   if initial != current:
-    print "{}: The {} is {}{}.".format(datetime.datetime.now(), query, current, units)
     return True
   else:
     return False
 while True:
-    # get the citibike response from their API
-    # api_key = "7240f211da7c1e42387d192d8405b523"
-    # city_id = "5128581"
-    # api_gold = "44db6a862fba0b067b1930da0d769e98"
-    # url = ("http://api.openweathermap.org/data/2.5/weather?id={}&appid={}&units=imperial").format(city_id, api_gold)
-    # r = requests.get(url)
-    # # extract my favourite citibike station
-    # result = r.json()
-    # stock = "FB,TSLA,AMZN"
+    now = datetime.datetime.now()
+    # Define which stock I would like to analyze
     stock = "FB"
     stock_url = "http://dev.markitondemand.com/MODApis/Api/v2/Quote/json?Symbol={}".format(stock)
     r2 = requests.get(stock_url)
-
     stock_results = r2.json()
-    print stock_results['LastPrice']
+
+    if not stock_data["quote"]:
+      stock_data["quote"] = stock_results['LastPrice']
+      print "{}: ${}".format(now, stock_data["quote"])
+
+    if has_changed(stock_results['LastPrice'], stock_data["quote"]):
+      stock_data["quote"] = stock_results['LastPrice']
+      print "{}: ${}".format(now, stock_data["quote"])
     stdout.flush()
 
     time.sleep(5)

@@ -32,7 +32,7 @@ while True:
     ''' These two variables below, TERM and LOCATION refer to what word we are searching for in the tweets as well
     as what Latitude and Longitude that tweet came from. I chose New York City's coordinates and the search term `weather` in order to see if people are talking more and more about the weather '''
     TERM = 'weather'
-    LOCATION = '40.80,40,-73,41'
+    LOCATION = '-74,40,-73,41'
     # print "searching for {} in NYC".format(TERM)
 
     ''' This is using the wrapper's api language and requesting to get a stream of tweets with the specified search conditions:TERM and LOCATION that are described above. r is a list of objects'''

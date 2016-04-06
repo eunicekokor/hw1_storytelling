@@ -9,11 +9,6 @@ from TwitterAPI import TwitterAPI
 ''' These are my authentication tokens required to access the Twitter API.
     Anyone who wants to create an application using Twitter's API needs to get
     approved access through these keys and secrets '''
-access_token_key = "28203065-AzK05fKKF4OzmPE0m1PbdZTq0vj4lsogO8JXWxXLH"
-access_token_secret = "q6j4iDDMqbsiY3LJTZXd1SCQ1RHgNZTQbQw1tcwpO9LDO"
-consumer_secret = "b6eIYasgVwIu3cskn3a8omPwms5S216i2G9OaBURYRQCFSM9Rd"
-consumer_key = "sXYl8MLLMnfE7HCl9lIZ3ytEl"
-
 ''' This is where we connect to the Twitter API using a python wrapper called TwitterAPI, which we
  imported above. (If you would like more information on TwitterAPI, the docs and other usage info
   is available at [https://github.com/geduldig/TwitterAPI](https://github.com/geduldig/TwitterAPI).)
